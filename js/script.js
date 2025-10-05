@@ -47,7 +47,11 @@ if (generateBtn) {
         const text = document.getElementById('qrText').value;
         const format = document.getElementById('qrFormat').value;
         if (text.trim() !== "") {
-            QRCode.toDataURL(text, { type: "image/" + format }, function (err, url) {
+            QRCode.toDataURL(text, { type: "image/" + format,
+                width: 400, margin: 2,
+                color: { dark: '#0c010bff', light: '#FFFFFF' },
+                height: 400, margin: 2
+             }, function (err, url) {
                 if (err) { console.error(err); return; }
 
                 // Create a download link
