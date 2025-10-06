@@ -1,28 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generate QR Code</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <title>QR Code Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h2>QR Code Generator</h2>
-        <input type="text" id="qrText" placeholder="Enter text">
+  <div class="login-wrapper">
+    <div class="login-box">
+      <h2 class="login-title">QR Code Generator</h2>
+      <div class="qr-settings">
+       <div class="row">
+  <div class="col-12">
+    <input type="text" id="qrText" class="form-control" placeholder="Enter text" required>
+    <div id="qrError" class="text-danger fw-bold mt-1 d-none">⚠️ Please enter text before generating.</div>
+  </div>
+</div>
+       <div class="row">
+  <div class="col-6">
+    <input type="number" id="qrWidth" class="form-control" placeholder="Width (px)" value="400">
+  </div>
+  <div class="col-6">
+    <input type="number" id="qrHeight" class="form-control" placeholder="Height (px)" value="400">
+  </div>
+</div>
+        <div class="row">
+  <div class="col-6">
+    <label for="qrDark">Foreground Color:</label>
+    <input type="color" id="qrDark" class="form-control" value="#000000">
+  </div>
+  <div class="col-6">
+    <label for="qrLight">Background Color:</label>
+    <input type="color" id="qrLight" class="form-control" value="#ffffff">
+  </div>
+</div>
         <label for="qrFormat">QR Code Format:</label>
-        <select id="qrFormat">
-            <option value="png">PNG</option>
-            <option value="jpeg">JPEG</option>
-            <option value="bmp">BMP</option>
-            <option value="gif">GIF</option>
+        <select id="qrFormat" class="form-control">
+          <option value="png">PNG</option>
+          <option value="jpeg">JPEG</option>
+          <option value="bmp">BMP</option>
+          <option value="gif">GIF</option>
         </select>
-        <button id="generateBtn">Generate & Download QR Code</button>
-        <a href="decode.html">Go to QR Decoder</a><br>
-        <button id="logoutBtn">Logout</button>
-    </div>
+        <button id="generateBtn" class="btn btn-login">Generate QR Code</button>
+        
+<a href="decode.html" class="btn btn-outline-light w-100 mt-2 fw-bold text-uppercase">
+  🔍 Go to QR Decoder
+</a>
+<div class="text-center mt-2">
+  <button id="logoutBtn" class="btn btn-outline-light fw-bold px-4 py-2 text-uppercase">
+    🚪 Logout
+  </button>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-    <script src="js/script.js"></script>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="qrModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center">
+        <h5 class="mb-3">Your QR Code</h5>
+        <div class="qr-preview">
+          <img id="qrImage" src="" alt="QR Code" class="img-fluid">
+          <a id="downloadLink" class="btn btn-download">Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
