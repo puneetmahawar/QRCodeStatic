@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>File & Image Toolkit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container py-5">
+    <h1 class="text-center mb-4">🧰 File & Image Toolkit</h1>
+    <div class="row g-4">
+
+      <!-- Image to PDF -->
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">🖼️ Image to PDF</h5>
+            <input type="file" id="imgToPdfInput" accept="image/*" class="form-control mb-2">
+            <button class="btn btn-primary w-100" id="imgToPdfBtn">Convert</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resize Image -->
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">📐 Resize Image</h5>
+            <input type="file" id="resizeInput" accept="image/*" class="form-control mb-2">
+            <input type="number" id="resizeWidth" placeholder="Width" class="form-control mb-2">
+            <input type="number" id="resizeHeight" placeholder="Height" class="form-control mb-2">
+            <button class="btn btn-primary w-100" id="resizeBtn">Resize</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compress Image -->
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">🗜️ Compress Image</h5>
+            <input type="file" id="compressInput" accept="image/*" class="form-control mb-2">
+            <input type="range" id="compressQuality" min="0.1" max="1" step="0.1" value="0.7" class="form-range mb-2">
+            <button class="btn btn-primary w-100" id="compressBtn">Compress</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="js/toolkit.js"></script>
+</body>
+</html>
